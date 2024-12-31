@@ -3,11 +3,13 @@ class MoviesController < ApplicationController
 
   # GET /movies or /movies.json
   def index
-    sort = params[:sort] || session[:sort]
-    direction = params[:direction] || session[:direction] || 'asc'
-    @movies = Movie.order("#{sort} #{direction}")
-    session[:sort] = sort
-    session[:direction] = direction
+    @sort = params[:sort]
+    @direction = params[:direction] || 'asc'
+    subquery = Movie.select('MIN(id) as id').group(:title, :release_date)
+    @movies = Movie.where(id: subquery)
+    if @sort.present?
+      @movies = @movies.order(Arel.sql("LOWER(#{@sort}) #{@direction}"))
+    end
   end
   # GET /movies/1 or /movies/1.json
   def show
@@ -16,6 +18,8 @@ class MoviesController < ApplicationController
   # GET /movies/new
   def new
     @movie = Movie.new
+    @sort = params[:sort]
+    @direction = params[:direction]
   end
 
   # GET /movies/1/edit
@@ -25,10 +29,9 @@ class MoviesController < ApplicationController
   # POST /movies or /movies.json
   def create
     @movie = Movie.new(movie_params)
-
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to @movie, notice: "Movie was successfully created." }
+        format.html { redirect_to movies_path(sort: params[:sort], direction: params[:direction]), notice: "Movie was successfully created." }
         format.json { render :show, status: :created, location: @movie }
       else
         format.html { render :new, status: :unprocessable_entity }

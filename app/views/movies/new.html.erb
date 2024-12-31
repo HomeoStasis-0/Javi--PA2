@@ -1,15 +1,38 @@
-<% content_for :title, "New movie" %>
+<div style="text-align: center;">
+  <h1 style="text-align: center; color: #333; margin-top: 20px;">New Movie</h1>
 
-<h1 style="text-align: center; color: #333; margin-top: 20px;">New movie</h1>
+  <%= form_with(model: @movie, url: movies_path(sort: @sort, direction: @direction)) do |form| %>
+    <table style="width: 50%; margin: 20px auto; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th style="border: 1px solid black; padding: 8px;">Attribute</th>
+          <th style="border: 1px solid black; padding: 8px;">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border: 1px solid black; padding: 8px;"><%= form.label :title %></td>
+          <td style="border: 1px solid black; padding: 8px;"><%= form.text_field :title %></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 8px;"><%= form.label :rating %></td>
+          <td style="border: 1px solid black; padding: 8px;"><%= form.text_field :rating %></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 8px;"><%= form.label :release_date %></td>
+          <td style="border: 1px solid black; padding: 8px;"><%= form.text_field :release_date %></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 8px;"><%= form.label :description %></td>
+          <td style="border: 1px solid black; padding: 8px;"><%= form.text_area :description %></td>
+        </tr>
+      </tbody>
+    </table>
 
-<div style="width: 50%; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
-  <%= render "form", movie: @movie %>
-</div>
-
-<br>
-
-<div style="text-align: center; margin-top: 20px;">
-  <div style="display: inline-block; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
-    <%= link_to "Back to movies", movies_path, style: "background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
-  </div>
+    <div style="text-align: center; margin-top: 20px;">
+      <div style="display: inline-block; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+        <%= form.submit "Create Movie", style: "background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
+      </div>
+    </div>
+  <% end %>
 </div>

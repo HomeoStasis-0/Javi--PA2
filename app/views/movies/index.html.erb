@@ -50,7 +50,7 @@
         <td style="border: 1px solid black; padding: 8px; <% if params[:sort] == 'rating' %>background-color: lightgreen;<% end %>"><%= movie.rating %></td>
         <td style="border: 1px solid black; padding: 8px; <% if params[:sort] == 'release_date' %>background-color: lightcoral;<% end %>"><%= movie.release_date %></td>
         <td style="border: 1px solid black; padding: 8px;">
-          <%= link_to "Show this movie", movie %>
+          <%= link_to "Show this movie", movie_path(movie, sort: params[:sort], direction: params[:direction]) %>
         </td>
       </tr>
     <% end %>
@@ -64,6 +64,6 @@
 
 <div style="text-align: center; margin-top: 20px;">
   <div style="display: inline-block; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
-    <%= link_to "New movie", new_movie_path, style: "background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
+    <%= link_to "New movie", new_movie_path(sort: params[:sort], direction: params[:direction]), style: "background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
   </div>
 </div>
