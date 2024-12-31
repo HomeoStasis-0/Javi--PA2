@@ -1,40 +1,42 @@
-<p style="color: green"><%= notice %></p>
+<div style="text-align: center;">
+  <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Movie Details" %>
+  <% content_for :title, "Movie Details" %>
 
-<h1 style="text-align: center; color: #333; margin-top: 20px;">Movie Details</h1>
+  <h1 style="text-align: center; color: #333; margin-top: 20px;">Movie Details</h1>
 
-<table style="width: 50%; margin: 20px auto; border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th style="border: 1px solid black; padding: 8px;">Attribute</th>
-      <th style="border: 1px solid black; padding: 8px;">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="border: 1px solid black; padding: 8px;">Title</td>
-      <td style="border: 1px solid black; padding: 8px;"><%= @movie.title %></td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid black; padding: 8px;">Rating</td>
-      <td style="border: 1px solid black; padding: 8px;"><%= @movie.rating %></td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid black; padding: 8px;">Release Date</td>
-      <td style="border: 1px solid black; padding: 8px;"><%= @movie.release_date %></td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid black; padding: 8px;">Description</td>
-      <td style="border: 1px solid black; padding: 8px;"><%= @movie.description %></td>
-    </tr>
-  </tbody>
-</table>
+  <table style="width: 50%; margin: 20px auto; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th style="border: 1px solid black; padding: 8px;">Attribute</th>
+        <th style="border: 1px solid black; padding: 8px;">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px;">Title</td>
+        <td style="border: 1px solid black; padding: 8px;"><%= @movie.title %></td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px;">Rating</td>
+        <td style="border: 1px solid black; padding: 8px;"><%= @movie.rating %></td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px;">Release Date</td>
+        <td style="border: 1px solid black; padding: 8px;"><%= @movie.release_date %></td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 8px;">Description</td>
+        <td style="border: 1px solid black; padding: 8px;"><%= @movie.description %></td>
+      </tr>
+    </tbody>
+  </table>
 
-<div style="text-align: center; margin-top: 20px;">
-  <div style="display: inline-block; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
-    <%= link_to "Edit this movie", edit_movie_path(@movie), style: "background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-right: 20px;" %>
-    <%= link_to "Back to movies", movies_path, style: "background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-right: 20px;" %>
-    <%= button_to "Destroy this movie", @movie, method: :delete, style: "background-color: #f44336; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; border: none; cursor: pointer;" %>
+  <div style="text-align: center; margin-top: 20px;">
+    <div style="display: inline-block; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+      <%= link_to "Edit this movie", edit_movie_path(@movie), style: "background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-right: 20px;" %>
+      <%= link_to "Back to movies", movies_path, style: "background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-right: 20px;" %>
+      <%= button_to "Destroy this movie", @movie, method: :delete, style: "background-color: #f44336; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; border: none; cursor: pointer; margin-top: 40px;" %>
+    </div>
   </div>
 </div>
