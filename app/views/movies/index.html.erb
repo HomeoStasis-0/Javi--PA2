@@ -1,25 +1,35 @@
-<h1>All Movies</h1>
+<p style="color: green"><%= notice %></p>
 
-<table>
+<% content_for :title, "Movies" %>
+
+<h1>Movies</h1>
+
+<table style="width: 100%; border-collapse: collapse;">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Rating</th>
-      <th>Release Date</th>
+      <th style="border: 1px solid black; padding: 8px;">Title</th>
+      <th style="border: 1px solid black; padding: 8px;">Rating</th>
+      <th style="border: 1px solid black; padding: 8px;">Release Date</th>
+      <th style="border: 1px solid black; padding: 8px;">Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
-        <td><%= movie.title %></td>
-        <td><%= movie.rating %></td>
-        <td><%= movie.release_date %></td>
+        <td style="border: 1px solid black; padding: 8px;"><%= movie.title %></td>
+        <td style="border: 1px solid black; padding: 8px;"><%= movie.rating %></td>
+        <td style="border: 1px solid black; padding: 8px;"><%= movie.release_date %></td>
+        <td style="border: 1px solid black; padding: 8px;">
+          <%= link_to "Show this movie", movie %>
+        </td>
       </tr>
     <% end %>
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="3">Total Movies: <%= @movies.count %></td>
+      <td colspan="4" style="border: 1px solid black; padding: 8px;">Total Movies: <%= @movies.count %></td>
     </tr>
   </tfoot>
 </table>
+
+<%= link_to "New movie", new_movie_path %>
