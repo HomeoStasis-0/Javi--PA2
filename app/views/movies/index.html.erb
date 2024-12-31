@@ -2,20 +2,38 @@
 
 <% content_for :title, "Movies" %>
 
-<h1>Movies</h1>
+<h1 style="text-align: center; color: #333; margin-top: 20px;">Movies</h1>
 
-<table style="width: 100%; border-collapse: collapse;">
+<table style="width: 80%; margin: 20px auto; border-collapse: collapse;">
   <thead>
     <tr>
-      <th style="border: 1px solid black; padding: 8px;">Title</th>
-      <th style="border: 1px solid black; padding: 8px;">Rating</th>
-      <th style="border: 1px solid black; padding: 8px;">Release Date</th>
+      <th style="border: 1px solid black; padding: 8px; background-color: <%= 'lightblue' if params[:sort] == 'title' && params[:direction] == 'asc' %>;">
+        <%= link_to "Title ▲", movies_path(sort: 'title', direction: 'asc') %> |
+        <%= link_to "▼", movies_path(sort: 'title', direction: 'desc') %>
+        <% if params[:sort] == 'title' %>
+          <%= params[:direction] == 'asc' ? '▲' : '▼' %>
+        <% end %>
+      </th>
+      <th style="border: 1px solid black; padding: 8px; background-color: <%= 'lightgreen' if params[:sort] == 'rating' && params[:direction] == 'asc' %>;">
+        <%= link_to "Rating ▲", movies_path(sort: 'rating', direction: 'asc') %> |
+        <%= link_to "▼", movies_path(sort: 'rating', direction: 'desc') %>
+        <% if params[:sort] == 'rating' %>
+          <%= params[:direction] == 'asc' ? '▲' : '▼' %>
+        <% end %>
+      </th>
+      <th style="border: 1px solid black; padding: 8px; background-color: <%= 'lightcoral' if params[:sort] == 'release_date' && params[:direction] == 'asc' %>;">
+        <%= link_to "Release Date ▲", movies_path(sort: 'release_date', direction: 'asc') %> |
+        <%= link_to "▼", movies_path(sort: 'release_date', direction: 'desc') %>
+        <% if params[:sort] == 'release_date' %>
+          <%= params[:direction] == 'asc' ? '▲' : '▼' %>
+        <% end %>
+      </th>
       <th style="border: 1px solid black; padding: 8px;">Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @movies.each do |movie| %>
-      <tr>
+      <tr style="border: 1px solid black; padding: 8px;">
         <td style="border: 1px solid black; padding: 8px;"><%= movie.title %></td>
         <td style="border: 1px solid black; padding: 8px;"><%= movie.rating %></td>
         <td style="border: 1px solid black; padding: 8px;"><%= movie.release_date %></td>
@@ -27,9 +45,11 @@
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="4" style="border: 1px solid black; padding: 8px;">Total Movies: <%= @movies.count %></td>
+      <td colspan="4" style="border: 1px solid black; padding: 8px; text-align: center; font-weight: bold;">Total Movies: <%= @movies.count %></td>
     </tr>
   </tfoot>
 </table>
 
-<%= link_to "New movie", new_movie_path %>
+<div style="text-align: center; margin-top: 20px;">
+  <%= link_to "New movie", new_movie_path, style: "background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
+</div>
