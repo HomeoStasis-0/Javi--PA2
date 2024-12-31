@@ -18,8 +18,8 @@ more_movies = [
   {:title => 'Nomadland', :rating => 'R',
     :release_date => '19-Feb-2021'},
   {:title => 'CODA', :rating => 'PG-13',
-    :release_date => '13-Aug-2021'}
-    {:title => 'Halloween', :rating => 'R',
+    :release_date => '13-Aug-2021'},
+  {:title => 'Halloween', :rating => 'R',
     :release_date => '31-Oct-2024'},
   {:title => 'Titanic', :rating => 'R',
     :release_date => '04-May-1990'},
