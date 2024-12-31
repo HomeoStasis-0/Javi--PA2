@@ -2,4 +2,4 @@
 
 Heroku:
 
-[![Heroku](https://img.shields.io/badge/Heroku-Visit%20App-blueviolet)](https://rottenpot-a98ce438f22f.herokuapp.com/movies)
+[![Heroku](https://img.shields.io/badge/Heroku-Visit%20App-blueviolet)](https://rottenpot-a98ce438f22f.herokuapp.com/movies) 
