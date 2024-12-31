@@ -1,11 +1,15 @@
 <% content_for :title, "New movie" %>
 
-<h1>New movie</h1>
+<h1 style="text-align: center; color: #333; margin-top: 20px;">New movie</h1>
 
-<%= render "form", movie: @movie %>
+<div style="width: 50%; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+  <%= render "form", movie: @movie %>
+</div>
 
 <br>
 
-<div>
-  <%= link_to "Back to movies", movies_path %>
+<div style="text-align: center; margin-top: 20px;">
+  <div style="display: inline-block; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+    <%= link_to "Back to movies", movies_path, style: "background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
+  </div>
 </div>
