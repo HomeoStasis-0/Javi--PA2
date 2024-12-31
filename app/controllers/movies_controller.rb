@@ -8,7 +8,11 @@ class MoviesController < ApplicationController
     subquery = Movie.select('MIN(id) as id').group(:title, :release_date)
     @movies = Movie.where(id: subquery)
     if @sort.present?
-      @movies = @movies.order(Arel.sql("LOWER(#{@sort}) #{@direction}"))
+      if @sort == 'release_date'
+        @movies = @movies.order(Arel.sql("CAST(#{@sort} AS TEXT) #{@direction}"))
+      else
+        @movies = @movies.order(Arel.sql("LOWER(#{@sort}) #{@direction}"))
+      end
     end
   end
   # GET /movies/1 or /movies/1.json
